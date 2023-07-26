@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // init the list with remove
     function initTheList() {
         clearList();
-        const initList = JSON.parse(localStorage.getItem('todoList'));
+        // const initList = JSON.parse(localStorage.getItem('todoList'));
 
         // Loop through the array and display each item
-        for (const todoItem of initList) {
+        for (const todoItem of todoList) {
             const listItem = document.createElement('li');
             
             listItem.textContent = todoItem.value;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var indexToRemove = Array.prototype.indexOf.call(div.parentNode.children, div);
                 div.style.display = "none";
         
-                var todoList = JSON.parse(localStorage.getItem('todoList'));
+                // var todoList = JSON.parse(localStorage.getItem('todoList'));
                 todoList.splice(indexToRemove, 1);
                 // Update the local storage with the modified array
                 localStorage.setItem('todoList', JSON.stringify(todoList));
@@ -95,12 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (inputValue === '') {
             alert("You must write something!");
         } else {
-            var todoList = JSON.parse(localStorage.getItem('todoList'));
+            // var todoList = JSON.parse(localStorage.getItem('todoList'));
             // Create a new to-do object
             var todoItem = { 
                 value: inputValue, 
                 completed: false 
               };
+              console.log(todoItem);
             // Add the new to-do to the array
             todoList.push(todoItem);
             // Update the local storage with the modified array
